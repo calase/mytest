@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuejs demo06</title>
+    <style>
+        #div {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<body>
+<div id="app">
+
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            fun1: function () {
+                axios.get("./data/user.json", {params: {id: 23}}).then(function (response) {
+                    alert(response);
+                    console.log(response);
+                    console.log(response.data[3].username + "   " + response.data[3].age);
+                }).catch(function (err) {
+                    alert(err);
+                })
+            }
+        },
+        created: function () {
+            this.fun1();
+        }
+    })
+
+</script>
+</body>
+</html>

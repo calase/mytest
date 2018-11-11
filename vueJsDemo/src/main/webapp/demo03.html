@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuejs demo02</title>
+    <style>
+        #div{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+    <div id="div" @mouseover="fun1()" style="width: 80%;height: 70%">
+        12345
+        <textarea @mouseover="fun2($event)"  style="width: 50%;height: 50%">
+            黑马程序员
+        </textarea>
+    </div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods:{
+            fun1:function () {
+                alert("div区域.....")
+            },
+            fun2:function (e) {
+                alert("textarea....");
+                e.stopPropagation();
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

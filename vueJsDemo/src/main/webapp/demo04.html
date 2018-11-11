@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuejs demo02</title>
+    <style>
+        #div {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+    <form @submit.prevent action="http://www.itcast.cn" method="post">
+        <input type="submit" value="提交">
+    </form>
+    <br>
+    <div @click="fun2" id="div">
+        <div @click="fun2" tyle="width: 50%;height: 50%">
+            <a @click.stop href="http://www.baidu.com">百度链接</a>
+        </div>
+
+    </div>
+    <input type="text" @keydown.enter="fun4">
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+         /*   fun1: function (e) {
+                e.preventDefault();
+            },*/
+            fun2: function () {
+                alert("div.....")
+            },
+         /*   fun3: function (e) {
+                e.stopPropagation();
+            }*/
+            fun4: function (e) {
+               alert("hello")
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

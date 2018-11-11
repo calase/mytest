@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vueJs 入门demo</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+    {{ message }}<br>
+    {{100*sum}}<br>
+    {{sum>100?message:'Hollow world'}}<br>
+    <button @click="fun1('good')">改变</button>
+    <div> <!-- 只能接受data中 的变量-->
+        <div v-text="message1"></div>
+        <div v-html="message1"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //vue 的入口
+    var app=new Vue({
+        //vue入口 识别id为ap 的div 中的内容
+        el:'#app',
+        data:{
+            message:'Hello Vue!',
+            sum:100,
+            message1:"<h1>Hello Vue!</h1>"
+        },
+        methods:{
+            fun1:function (e) {
+             this.message=e;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vueJs 入门demo</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<body>
+<div id="app">
+    <font size="5" :color="y1">砂进口到哈市炬华科技</font><br>
+    <font size="5" :color="y2">撒尽快的哈新装备那么</font><br>
+    <a :href="url">itcast</a>
+
+    <form>
+        <input type="text" v-model="user.username"/><br>
+        <input type="text" v-model="user.password"/>
+        <button type="button" @click="fun1" value="提交">提交</button>
+    </form>
+
+    <ul v-show="flag">
+        <li v-for="(val,index) in array">{{val}}---{{index}}</li>
+    </ul>
+    <ul v-if="flag">
+        <li v-for="(user,index) in list">{{user.username}}--{{user.username}}--{{index}}</li>
+
+    </ul>
+
+    <button @click="toggle">切换</button>
+
+</div>
+
+<script type="text/javascript">
+    //vue 的入口
+    var app = new Vue({
+        //vue入口 识别id为ap 的div 中的内容
+        el: '#app',
+        data: {
+            y1: 'red',
+            y2: 'yellow',
+            url: 'http://www.baidu.com',
+            user: {
+                username: "zds",
+                password: "123456"
+            },
+            flag: true,
+            array:["aaa","bbb","ccc"],
+            list: [{username: "zds", password: "123456"},{username: "zdassds", password: "123456"},{username: "adsaasd", password: "123456"}]
+        },
+        methods: {
+            fun1:function () {
+                this.user.username="zbb";
+                this.user.password="887465"
+            },
+            toggle:function () {
+                this.flag=!this.flag;
+            }
+        }
+    })
+</script>
+</body>
+</html>

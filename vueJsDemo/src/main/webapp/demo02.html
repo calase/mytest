@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuejs demo02</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+    <input type="text" v-on:keydown="fun1($event)"/>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods:{
+            fun1:function (e) {
+                var keyCode=e.keyCode;
+                if(keyCode<48 || keyCode>57){
+                    // 阻止事件执行 中文输入法可以绕过事件执行
+                    e.preventDefault();
+                }
+
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
